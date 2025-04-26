@@ -3,6 +3,6 @@ import { defineConfig } from 'astro/config';
 
 // https://astro.build/config
 export default defineConfig({
-    base: "/portfolio/",
+    base: '/portfolio/',
     outDir: 'docs', // directly output to docs folder!
 });
