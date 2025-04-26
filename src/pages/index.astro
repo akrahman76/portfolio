@@ -20,7 +20,8 @@ import "../styles/global.css";
     <div class="flex min-h-screen">
       
       <!-- Sidebar -->
-      <aside class="w-1/4 bg-sky-200 text-gray-800 p-8 flex flex-col">
+      <aside class="sticky top-0 h-screen bg-babyblue p-6 flex flex-col justify-between w-[200px] md:w-[260px] lg:w-[350px]">
+        <!-- <aside class="sticky top-0 h-screen bg-babyblue p-6 flex-shrink-0 w-[200px] md:w-[260px] lg:w-[350px]"> -->
         <img 
         src="/profile.png" 
         alt="Mostafizur Rahman" 
@@ -30,24 +31,24 @@ import "../styles/global.css";
         <h2 class="text-xl text-gray-600 mb-6">Sr Software Engineer</h2>
       
         <nav class="space-y-4">
-          <a href="#about" class="block hover:text-sky-500">About</a>
-          <a href="#about" class="block hover:text-sky-500">Experience</a>
-          <a href="#projects" class="block hover:text-sky-500">Projects</a>
-          <a href="#skills" class="block hover:text-sky-500">Skills</a>
-          <a href="#contact" class="block hover:text-sky-500">Contact</a>
-          <a href="#skills" class="block hover:text-sky-500">Education</a>
-          <a href="#awards" class="block hover:text-sky-500">Awards</a>
-          <a href="#publications" class="block hover:text-sky-500">Publications</a>
-          <a href="#hobbies" class="block hover:text-sky-500">Hobbies</a>
+          <a href="#about" class="block text-gray-700 font-medium transition-all duration-300" id="link-about">About</a>
+          <a href="#experience" class="block text-gray-700 font-medium transition-all duration-300" id="link-experience">Experience</a>  
+          <a href="#projects" class="block text-gray-700 font-medium transition-all duration-300" id="link-projects">Projects</a> 
+          <a href="#skills" class="block text-gray-700 font-medium transition-all duration-300" id="link-skills">Skills</a>
+          <a href="#education" class="block text-gray-700 font-medium transition-all duration-300" id="link-education">Education</a> 
+          <a href="#publications" class="block text-gray-700 font-medium transition-all duration-300" id="link-publications">Publications</a> 
+          <a href="#awards" class="block text-gray-700 font-medium transition-all duration-300" id="link-awards">Awards</a> 
+          <a href="#hobbies" class="block text-gray-700 font-medium transition-all duration-300" id="link-hobbies">Hobbies</a> 
+          <a href="#contact" class="block text-gray-700 font-medium transition-all duration-300" id="link-contact">Contact</a> 
         </nav>
       
-        <div class="mt-auto">
-          <p class="text-xs text-gray-600">&copy; 2025 Mostafizur Rahman</p>
-        </div>
+        <footer class="mt-auto text-gray-600 text-sm">
+          <p>&copy; 2025 Mostafizur Rahman</p>
+        </footer>
       </aside>
 
       <!-- Main Content -->
-      <main class="w-3/4 bg-white p-8 text-gray-800">
+      <main class="flex-1 bg-white p-8 text-gray-800">
         <About/>
         <Experience/>
 
@@ -64,8 +65,8 @@ import "../styles/global.css";
           
         <Skills/>
         <Education/>
-        <Awards/>
         <Publications/>
+        <Awards/>
         <Hobbies/>
     
         <section id="contact">
@@ -76,3 +77,32 @@ import "../styles/global.css";
     </div>
   </body>
 </html>
+
+<script is:global>
+  const sections = document.querySelectorAll("section[id]");
+  const navLinks = document.querySelectorAll("nav a");
+
+  function activateLink(id) {
+    navLinks.forEach(link => {
+      if (link.getAttribute("href") === `#${id}`) {
+        link.classList.add("text-xl", "font-bold");
+      } else {
+        link.classList.remove("text-xl", "font-bold");
+      }
+    });
+  }
+
+  const observer = new IntersectionObserver(
+    entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          activateLink(entry.target.id);
+        }
+      });
+    },
+    { threshold: 0.6 }
+  );
+
+  sections.forEach(section => observer.observe(section));
+</script>
+

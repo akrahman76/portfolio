@@ -5,6 +5,9 @@ export default {
       fontFamily: {
         sans: ['Inter', 'sans-serif'],
       },
+      colors: {
+        babyblue: '#d6eaf8', // soft blue tone
+      },
     },
   },
   plugins: [],
