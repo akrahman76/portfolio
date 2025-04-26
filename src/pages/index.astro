@@ -51,13 +51,17 @@ import "../styles/global.css";
         <About/>
         <Experience/>
 
-        <!-- SmartThings -->
-        <Projects 
-          title="SmartThings for Windows" 
-          description="SmartThings for Galaxy devices" 
-          slug="smartThings" />
+        <section id="projects" class="mb-12">
+          <h2 class="text-2xl font-bold mb-4">Projects</h2>
+          <div class="grid gap-8 md:grid-cols-2 mb-12">
+            <Projects title="SmartThings for Windows" description="SmartThings for Galaxy devices" slug="smartThings" />
+            <Projects title="Camera Plugin for SmartThings" description="Stream from your cameras" slug="avplayer" />
+            <Projects title="CameraShare" description="Use your Galaxy phone as a webcam" slug="avplayer" />
+            <!-- Add more projects here -->
+          </div>
 
-
+          
+          
         <Skills/>
         <Education/>
         <Awards/>

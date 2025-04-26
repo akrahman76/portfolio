@@ -2,16 +2,11 @@
 // src/components/Project.astro
 const { title, description, slug } = Astro.props;
 ---
-<section id="hobbies" class="mb-12">
-    <h2 class="text-2xl font-bold mb-4">Projects</h2>
-  
-    <article class="p-5 rounded-xl border border-gray-200 bg-white hover:shadow-md transition">
-        <h3 class="text-xl font-semibold mb-2 text-gray-800">{title}</h3>
-        <p class="text-gray-600 mb-4">{description}</p>
-        <a href={`/projects/${slug}`} 
-        class="text-blue-500 font-medium hover:underline">
-          View Project →
-        </a>
-      </article>
-      
-</section>
+<article class="p-5 rounded-xl border border-gray-200 bg-white hover:shadow-md transition">
+    <h3 class="text-xl font-semibold mb-2 text-gray-800">{title}</h3>
+    <p class="text-gray-600 mb-4">{description}</p>
+    <a href={`/projects/${slug}`} 
+    class="text-blue-500 font-medium hover:underline">
+      View Project →
+    </a>
+  </article>
