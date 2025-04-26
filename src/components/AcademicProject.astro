@@ -1,0 +1,72 @@
+---
+//src/components/Project.astro
+const { title, description, slug, isThesis=false } = Astro.props;
+---
+<!-- <article class="p-5 rounded-2xl shadow hover:shadow-lg transition bg-white min-h-[250px]">
+    <h3 class="text-xl font-semibold mb-2 text-gray-800">{title}</h3>
+    {isThesis && (
+        <span class="bg-yellow-300 text-yellow-800 px-2 py-0.5 rounded-full text-xs font-semibold">
+          Thesis
+        </span>
+      )}
+    <p class="text-gray-600 mb-4">{description}</p>
+
+  </article> -->
+  <section id="academic-projects" class="mb-16">
+    <ul class="space-y-6">
+      <li>
+        <h3 class="text-lg font-semibold flex items-center space-x-2">
+          <span>An approach to generate video captions in Bengali with semantic consistency</span>
+          <span class="bg-yellow-300 text-yellow-800 px-2 py-0.5 rounded-full text-xs font-semibold">Thesis</span>
+        </h3>
+        <p class="text-gray-600 mt-1">
+          Developed a machine learning system to detect emotions (happy/sad) of special teens using EEG brainwave data.
+        </p>
+        <!-- <a href="#" class="text-blue-500 text-sm hover:underline mt-1 inline-block">View Project →</a> -->
+      </li>
+  
+      <li>
+        <h3 class="text-lg font-semibold">AI Fall Detection System</h3>
+        <p class="text-gray-600 mt-1">
+          Built an AI system that detects falls using real-time human pose estimation and alerts caregivers.
+        </p>
+      </li>
+
+      <li>
+        <h3 class="text-lg font-semibold">Emotion Detection Using EEG for Special Teens</h3>
+        <p class="text-gray-600 mt-1">
+            Developed a system that detects happiness or sadness by analyzing brainwave data collected via an EEG headset. Trained an SVM model on data from 20 special teens, captured through emotion-inducing video sessions.
+        </p>
+      </li>
+
+      <li>
+        <h3 class="text-lg font-semibold">A smart shopping cart system</h3>
+        <p class="text-gray-600 mt-1">
+          Built an AI system that detects falls using real-time human pose estimation and alerts caregivers.
+        </p>
+      </li>
+
+      <li>
+        <h3 class="text-lg font-semibold">Office Automation</h3>
+        <p class="text-gray-600 mt-1">
+            A database and a website for the faculty members of CSE department.
+        </p>
+      </li>
+
+      <li>
+        <h3 class="text-lg font-semibold">Tic Tac Toe using Arduino</h3>
+        <p class="text-gray-600 mt-1">
+            An arduino based tic tac toe game using TFT display.
+        </p>
+      </li>
+
+      <li>
+        <h3 class="text-lg font-semibold">Note Share</h3>
+        <p class="text-gray-600 mt-1">
+            A web-based platform for the students to share their class notes, slides, codes etc
+        </p>
+      </li>
+
+    </ul>
+  </section>
+
