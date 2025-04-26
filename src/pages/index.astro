@@ -1,0 +1,59 @@
+---
+import Experience from "../components/Experience.astro";
+import Skills from "../components/Skills.astro";
+import Education from "../components/Education.astro";
+import About from "../components/About.astro";
+import Projects from "../components/Projects.astro";
+import Awards from "../components/Awards.astro";
+import Hobbies from "../components/Hobbies.astro";
+import "../styles/global.css";
+---
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mostafizur Rahman | Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  </head>
+  <body class="font-sans bg-gray-100 text-gray-800">
+    <div class="flex min-h-screen">
+      
+      <!-- Sidebar -->
+      <aside class="w-1/4 bg-sky-200 text-gray-800 p-8 flex flex-col">
+        <h1 class="text-3xl font-bold mb-2">Mostafizur Rahman</h1>
+        <h2 class="text-xl text-gray-600 mb-6">Sr Software Engineer</h2>
+      
+        <nav class="space-y-4">
+          <a href="#about" class="block hover:text-sky-500">About</a>
+          <a href="#about" class="block hover:text-sky-500">Experience</a>
+          <a href="#projects" class="block hover:text-sky-500">Projects</a>
+          <a href="#skills" class="block hover:text-sky-500">Skills</a>
+          <a href="#contact" class="block hover:text-sky-500">Contact</a>
+          <a href="#skills" class="block hover:text-sky-500">Education</a>
+          <a href="#awards" class="block hover:text-sky-500">Awards</a>
+          <a href="#hobbies" class="block hover:text-sky-500">Hobbies</a>
+        </nav>
+      
+        <div class="mt-auto">
+          <p class="text-xs text-gray-600">&copy; 2025 Mostafizur Rahman</p>
+        </div>
+      </aside>
+
+      <!-- Main Content -->
+      <main class="w-3/4 bg-white p-8 text-gray-800">
+        <About/>
+        <Experience/>
+        <Projects/>
+        <Skills/>
+        <Education/>
+        <Awards/>
+        <Hobbies/>
+    
+        <section id="contact">
+          <h2 class="text-2xl font-bold mb-4">Contact</h2>
+          <p>Email: yourname@example.com</p>
+        </section>
+      </main>
+    </div>
+  </body>
+</html>
