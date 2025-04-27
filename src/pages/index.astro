@@ -8,6 +8,7 @@ import Awards from "../components/Awards.astro";
 import Hobbies from "../components/Hobbies.astro";
 import Publications from "../components/Publications.astro";
 import Academic from "../components/AcademicProject.astro";
+import PersonalProject from "../components/PersonalProject.astro";
 import "../styles/global.css";
 import profileImg from '/profile.png';
 ---
@@ -64,6 +65,14 @@ import profileImg from '/profile.png';
                 <Projects title="SmartThings for Windows" description="SmartThings for Galaxy devices"  />
                 <Projects title="Camera Plugin for SmartThings" description="Stream from your cameras"  />
                 <Projects title="CameraShare" description="Use your Galaxy phone as a webcam"  />
+              </div>
+            </div>
+
+            <!-- Personal Project -->
+            <div>
+              <h3 class="text-xl font-semibold text-blue-700 mb-4">Personal Projects</h3>
+              <div class="grid md:grid-cols-2 gap-6 mb-12">
+                <PersonalProject/>
               </div>
             </div>
           
