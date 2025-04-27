@@ -1,0 +1,116 @@
+---
+let isExpanded = false; // Track whether the text is expanded
+let title = "Camera Share";
+---
+
+<article class="p-5 rounded-xl border border-gray-200 bg-white hover:shadow-md transition cursor-pointer">
+    <h3 class="text-xl font-semibold mb-2 text-gray-800">Camera Share</h3>
+    <!-- Wrapper for the Description and Details -->
+    <div 
+      id="description-cs" 
+      class={`text-gray-600 mb-4 ${isExpanded ? 'expanded' : 'collapsed'}`}
+      data-title="cs">
+      
+      <!-- Description with clamping -->
+      <p id="description-cs-text" class="mb-4">
+        <span class="font-semibold">Role:</span> Front-End Developer & Device Management
+      </p>
+      
+      <!-- Details with clamping -->
+      <p id="details-cs">
+        <ul>
+          <li><strong>Technologies:</strong> WPF | WinUI 3 | .NET Framework | .NET Core</li>
+          <li><strong>Responsibilities:</strong>
+            <ul class="list-disc ml-5">
+              <li>Developed a <span class="font-semibold">rich UI</span> and implemented seamless <span class="font-semibold">device connection</span> and <span class="font-semibold">management</span> features, allowing users to connect their phones as webcams.</li>
+              <li>Integrated front-end with the <span class="font-semibold">back-end</span>, ensuring smooth data flow and responsiveness between devices and the application.</li>
+            </ul>
+          </li>
+        </ul>
+      </p>
+    </div>
+
+  <!-- See More button is shown only when text is clamped -->
+  <button 
+    class={`text-blue-500 font-semibold mt-2 ${isExpanded ? 'hidden' : ''}`}
+    id="seeMoreButton-cs"
+    data-title={title}>
+    See More
+  </button>
+
+  <!-- See Less button is shown when text is expanded -->
+  <button 
+    class={`text-blue-500 font-semibold mt-2 ${isExpanded ? '' : 'hidden'}`}
+    id="toggleButton-cs"
+    data-title={title}>
+    See Less
+  </button>
+</article>
+
+<script type="module" client:load>
+    document.addEventListener('DOMContentLoaded', () => {
+      let isClamped = false; // Track if text is overflowing (clamped)
+      let isExpanded = false; // Track if the text is expanded
+      
+      const toggleButtons = document.querySelectorAll('button[data-title]');
+      const seeMoreButtons = document.querySelectorAll('button[id^="seeMoreButton-"]');
+
+      toggleButtons.forEach((button) => {
+        const title = button.getAttribute('data-title');
+        const description = document.getElementById('description-cs');
+        const details = document.getElementById('details-cs');
+        const toggleButton = button;
+        const seeMoreButton = document.getElementById('seeMoreButton-cs');
+        const seeLessButton = document.getElementById('toggleButton-cs');
+
+        // Function to check if the text is overflowing
+        function checkTextOverflow() {
+          if (description.scrollHeight > description.clientHeight || details.scrollHeight > details.clientHeight) {
+            seeMoreButton.classList.remove('hidden');
+            isClamped = true;
+          } else {
+            seeMoreButton.classList.add('hidden');
+            isClamped = false;
+          }
+        }
+
+        // Check if the text is overflowing when page loads
+        checkTextOverflow();
+
+        // Recheck on window resize (optional)
+        window.addEventListener('resize', checkTextOverflow);
+
+        // Event listener for toggling the expansion
+        seeMoreButton.addEventListener('click', () => {
+          isExpanded = true;
+          description.classList.add('expanded');
+          description.classList.remove('collapsed');
+          seeMoreButton.classList.add('hidden');
+          seeLessButton.classList.remove('hidden');
+        });
+
+        seeLessButton.addEventListener('click', () => {
+          isExpanded = false;
+          description.classList.add('collapsed');
+          description.classList.remove('expanded');
+          seeLessButton.classList.add('hidden');
+          seeMoreButton.classList.remove('hidden');
+        });
+      });
+    });
+</script>
+
+<style>
+  /* Collapse the text with max-height and overflow hidden */
+  .collapsed {
+    max-height: 5.25em; /* Adjust this to the height of 3 lines of text */
+    overflow: hidden;
+    transition: max-height 0.3s ease-out;
+  }
+
+  /* Fully expand the text */
+  .expanded {
+    max-height: none; /* No limit on height when expanded */
+    transition: max-height 0.3s ease-in;
+  }
+</style>
