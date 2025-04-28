@@ -24,9 +24,26 @@ import profileImg from '/profile.png';
   </head>
   <body class="font-sans bg-gray-100 text-gray-800">
     <div class="flex flex-col md:flex-row min-h-screen">
+      <!-- Hamburger Button -->
+      <header class="md:hidden fixed top-0 left-0 w-full bg-babyblue z-40 flex items-center h-14 px-4">
+        <button 
+          id="menuButton"
+          class="text-3xl text-gray-700 hover:text-gray-900 transition-all duration-300"
+        >
+          ☰
+        </button>
+      </header>
+      
       
       <!-- Sidebar -->
-        <aside class="bg-babyblue p-6 flex flex-col justify-between w-full md:w-[260px] lg:w-[350px] md:sticky md:top-0 md:h-screen">
+        <!-- <aside id="sidebar" class="bg-babyblue p-6 flex flex-col justify-between w-full md:w-[260px] lg:w-[350px] md:sticky md:top-0 md:h-screen"> -->
+          <aside 
+          id="sidebar"
+          class="bg-babyblue p-6 flex flex-col justify-between 
+                 w-64 md:w-[260px] lg:w-[350px] 
+                 fixed top-0 left-0 h-full z-40 transition-transform duration-300 
+                 -translate-x-full md:translate-x-0 md:sticky md:h-screen md:top-0"
+        >
         <img 
         src={profileImg.src} 
         alt="Mostafizur Rahman" 
@@ -53,7 +70,7 @@ import profileImg from '/profile.png';
       </aside>
 
       <!-- Main Content -->
-      <main class="flex-1 p-4 md:p-8 overflow-auto bg-white text-gray-800 mx-auto">
+      <main class="flex-1 p-4 md:p-8 overflow-auto bg-white text-gray-800 mx-auto pt-20">
         <div class="max-w-5xl mx-auto">
         <About/>
         <Experience/>
@@ -105,6 +122,31 @@ import profileImg from '/profile.png';
 </html>
 
 <script is:global>
+  const menuButton = document.getElementById('menuButton');
+  const sidebar = document.getElementById('sidebar');
+
+  menuButton.addEventListener('click', () => {
+    sidebar.classList.toggle('-translate-x-full');
+    sidebar.classList.toggle('translate-x-0');
+
+    // Hide the button when sidebar is open
+    if (sidebar.classList.contains('translate-x-0')) {
+      menuButton.classList.add('hidden');
+    }
+  });
+
+  // Optional: Clicking anywhere outside sidebar can close it + show the button again
+  document.addEventListener('click', (e) => {
+    if (!sidebar.contains(e.target) && !menuButton.contains(e.target)) {
+      sidebar.classList.add('-translate-x-full');
+      sidebar.classList.remove('translate-x-0');
+      menuButton.classList.remove('hidden');
+      menuButton.innerHTML = '☰'; // reset to hamburger
+    }
+  });
+</script>
+
+<script is:global>
   const sections = document.querySelectorAll("section[id]");
   const navLinks = document.querySelectorAll("nav a");
 
@@ -131,4 +173,3 @@ import profileImg from '/profile.png';
 
   sections.forEach(section => observer.observe(section));
 </script>
-
