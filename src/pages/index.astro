@@ -12,8 +12,12 @@ import PersonalProject from "../components/PersonalProject.astro";
 import ST from "../components/projects/SmartThings.astro";
 import AVP from "../components/projects/AVplayer.astro";
 import CS from "../components/projects/CameraShare.astro";
+import Contact from "../components/Contact.astro";
 import "../styles/global.css";
 import profileImg from '/profile.png';
+import github from '/github.png';
+import linkedin from '/linkedin.png';
+import gmail from '/gmail.png';
 ---
 <html lang="en">
   <head>
@@ -50,7 +54,20 @@ import profileImg from '/profile.png';
         class="w-44 h-44 rounded-full object-cover border-4 border-white shadow-lg mb-6"/>
 
         <h1 class="text-3xl font-bold mb-2">Mostafizur Rahman</h1>
-        <h2 class="text-xl text-gray-600 mb-6">Sr Software Engineer</h2>
+        <h2 class="text-xl text-gray-600 mb-2">Sr Software Engineer</h2>
+        <!-- icons -->
+        <div class="flex items-center space-x-5 mb-6">
+          <a href="mailto:akrahman76@gmail.com" target="_blank" aria-label="Gmail">
+            <img src={gmail.src} alt="Gmail" class="w-6 h-6 hover:scale-110 transition-transform" />
+          </a>
+          <a href="https://github.com/akrahman76" target="_blank" aria-label="GitHub">
+            <img src={github.src} alt="GitHub" class="w-6 h-6 hover:scale-110 transition-transform" />
+          </a>
+          <a href="https://www.linkedin.com/in/mostafizur-rahman-873172160/" target="_blank" aria-label="LinkedIn">
+            <img src={linkedin.src} alt="LinkedIn" class="w-6 h-6 hover:scale-110 transition-transform" />
+          </a>
+        </div>
+        
       
         <nav class="space-y-4">
           <a href="#about" class="block text-gray-700 font-medium transition-all duration-300" id="link-about">About</a>
@@ -110,11 +127,7 @@ import profileImg from '/profile.png';
         <Publications/>
         <Awards/>
         <Hobbies/>
-    
-        <section id="contact">
-          <h2 class="text-2xl font-bold mb-4">Contact</h2>
-          <p>Email: akrahman76@gmail.com</p>
-        </section>
+        <!-- <Contact/> -->
       </div>
       </main>
     </div>
